@@ -63,10 +63,42 @@ class Point {
 		System.out.println(String.format("Point coordnates: x = %f y = %f", x, y));
 	}
 
+}
 
+class Canvas {
+	List<Point> points;
+	String id, pColor;
+	double x,y;
 
+	public Canvas(String id, String pColor, double x, double y) {
+		this.points = new ArrayList<>();
+		this.id = id;
+		this.pColor = pColor;
+		this.x = x;
+		this.y = y;
+	}
+	public void addPoint(String id,double x,double y,String pColor){
+		points.add(new Point(id,pColor,x,y));
+		System.out.println("("+id+","+pColor+","+x+","+y+")");
+	}
 
+	public void removePoint(int i){
+		points.remove(points.get(i));
+	}
 
+	public void drawPoints(){
+		for (Point p:points){
+			p.draw();
+		}
+	}
+	
+	public void movePoints(char xD,char yD){
+		for(Point p:points){
+			p.move(xD,yD);
+		}
+	}
 
-
+	public void total(){
+		System.out.println(points.size());
+	}
 }
