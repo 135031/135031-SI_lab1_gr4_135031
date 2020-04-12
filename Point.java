@@ -1,5 +1,5 @@
 class Point {
-	String id
+	String id, pointColor;
 	double x,y;
 
 	//TODO add new variable
